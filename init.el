@@ -74,7 +74,7 @@ If the new path's directories does not exist, create them."
     backupFilePath))
 (setopt make-backup-file-name-function 'bedrock--backup-file-name)
 
-;;;   Discovery aids
+;;; ** Discovery aids
 
 ;; Show the help buffer after startup
 (add-hook 'after-init-hook 'help-quick)
@@ -170,6 +170,47 @@ If the new path's directories does not exist, create them."
 (use-package emacs
   :config
   (load-theme 'modus-vivendi))          ; for light theme, use modus-operandi
+
+;;; **  LOEL Extras
+
+;;; ***  Code Folding
+
+;; jgd: Problems With Outshine-Mode
+;; Emacs 30.1
+;; outorg 20190720.2002 installed
+;; outshine 20220326.540 installed
+;; [2025-04-21 Mon 23:54]
+
+;; I initially tried
+
+;; (use-package outshine
+;;    :hook (after-init . outshine-mode) )
+;; (add-hook 'emacs-lisp-mode-hook 'outshine-mode)
+
+;; I kept getting a complaint that the file outorg could not be found,
+;; despite that prerequisite having been installed.
+
+;; Nothing I tried got Emacs to find outorg.el to satisfy
+;; (require ')outorg)
+
+;; So let's force everything:
+
+;; outorg and outshine require this specific binding
+;; prior to being loaded
+(defvar outline-minor-mode-prefix "\M-#")
+
+;; let's try to find our installed "outorg.el" file:
+(defvar outorg-files (directory-files-recursively "~/.emacs.d/elpa" "outorg\.el"))
+;; and preoceed forward cautiously:
+(and (consp outorg-files)
+     (stringp (car outorg-files))
+     (require 'outorg (car outorg-files) t)
+     (require 'outshine "outshine.el" t)
+     (add-hook 'emacs-lisp-mode-hook 'outshine-mode) )
+
+;; jgd: Outshine mode is only sort of working.  TAB is not working on all headers!
+;; [2025-04-22 Tue 01:12]
+
 
 ;;; **  Optional extras
 
