@@ -1,0 +1,21 @@
+* LOEL fork of Emacs Bedrock
+
+This fork of [[file:README.md][Emacs Bedrock]] adds a branch named loel with changes
+consistent with [[https://gregdavidson.github.io/loel][LOEL]] practices.
+- Use of OrgMode instead of text or Markdown files.
+- Use of Outshine Mode for source code files
+- Avoiding conflicts with standard Emacs commands
+  - e.g. CUA commands interfere with standard indentation commands
+
+We would like to be able to pull from the Emacs Bedrock repository in
+the future and merge anything we like.  Where we don't like Emacs
+Bedrock code we generally just comment it out rather than deleting or
+changing it.
+
+The biggest textual change is replacing the fancy Emacs Bedrock code
+section comments with Outshine-compatible simple section headers.
+Since these are just comments, there's no effect on Emacs.
+
+We may make some carefully chosen pedagogically motivated changes of
+our own, e.g. moving customization files from init.el to a separate
+custom.el file so that everyone can use git without churn.
