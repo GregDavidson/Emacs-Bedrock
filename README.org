@@ -5,7 +5,8 @@ consistent with [[https://gregdavidson.github.io/loel][LOEL]] practices.
 - Use of OrgMode instead of text or Markdown files.
 - Use of Outshine Mode for source code files
 - Avoiding conflicts with standard Emacs commands
-  - e.g. CUA commands interfere with standard indentation commands
+  - e.g. disabling CUA as some CUA commands interfere with standard
+    indentation commands
 
 We would like to be able to pull from the Emacs Bedrock repository in
 the future and merge anything we like.  Where we don't like Emacs
