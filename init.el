@@ -173,6 +173,9 @@ If the new path's directories does not exist, create them."
 
 ;;; **  LOEL Extras
 
+(load-file (expand-file-name "Greg-Extras/org-capture.el" user-emacs-directory))
+
+
 ;;; ***  Code Folding
 
 ;; jgd: Problems With Outshine-Mode
@@ -206,7 +209,10 @@ If the new path's directories does not exist, create them."
      (stringp (car outorg-files))
      (require 'outorg (car outorg-files) t)
      (require 'outshine "outshine.el" t)
-     (add-hook 'emacs-lisp-mode-hook 'outshine-mode) )
+     (add-hook 'emacs-lisp-mode-hook 'outshine-mode)
+     (add-hook 'scheme-mode-hook 'outshine-mode)
+     (add-hook 'sql-mode-hook 'outshine-mode)
+     (add-hook 'racket-mode-hook 'outshine-mode) )
 
 ;; jgd: Outshine mode is only sort of working.  TAB is not working on all headers!
 ;; [2025-04-22 Tue 01:12]
